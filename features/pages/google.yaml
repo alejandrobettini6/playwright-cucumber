@@ -1,0 +1,3 @@
+url: 'https://google.com.ar'
+search:
+  locator: '//textarea[@title="Buscar"]'
