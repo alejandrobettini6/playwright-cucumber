@@ -48,7 +48,7 @@ Before('@device', async function(){
 
 After(async function(scenario){
     if(scenario.result?.status == 'PASSED'){
-        //delete video
+        //delete video if the scenario result is passed
         const waitPromise = new Promise((resolve) => setTimeout(resolve, 5000));
         await Promise.race([
             this.page.video().delete(),
@@ -57,9 +57,10 @@ After(async function(scenario){
             console.error(`Error trying to delete the recorded video: ${error}`);
         })
         //log that scenario ran success
+        console.log(`Scenario: ${scenario.pickle.name} passed`)
     }else{
         //take and attach screenshot
-        this.attach(await this.page.screenshot(), 'image/png')
+        this.attach(await this.page.screenshot({fullPage: true}), 'image/png')
         //attach video in report
         const video = fs.readFileSync(await this.page.video().path())
         await this.attach(video, 'video/webm')

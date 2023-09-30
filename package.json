@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "test": "npx cucumber-js --require-module ts-node/register -r features/**/*.ts -r support/**/*.ts --format ./allure.ts"
+    "test": "npx cucumber-js --require-module ts-node/register features/tests/**/*.feature -r features/steps/**/*.ts -r support/**/*.ts --format ./allure.ts"
   },
   "keywords": [],
   "author": "",

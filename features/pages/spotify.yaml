@@ -1,0 +1,23 @@
+url: 'https://www.spotify.com/ar/signup'
+email:
+  locator: "//input[@name='email']"
+password:
+  locator: "//input[@name='password']"
+name:
+  locator: "//input[@name='displayname']"
+day:
+  locator: "//input[@name='day']"
+month:
+  locator: "//select[@id='month']"
+year:
+  locator: "//input[@name='year']"
+gender:
+  locator: "//span[following-sibling::span[text()='<option>']]"
+marketing messages:
+  locator: "//label[contains(@for,'marketing')]/span[1]"
+share my data:
+  locator: "//label[contains(@for,'third-party')]/span[1]"
+sign up:
+  locator: "//button[@type='submit']"
+email error message:
+  locator: "//input[@name='email']/following-sibling::div[@data-encore-id='formHelpText']"

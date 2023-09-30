@@ -1,21 +1,18 @@
-Feature: Sample framework set-up
+Feature: Sample
 
-    This feature shows how can you automate with cucumber and playwright using traditional Page Object Model (POM) and user step-by-step definitions.
+    This feature show you how can you build a test scenario using user-steps definition that works as live-documentation
+    for all team members and make easy to reproduce the scenarios manually. Also make easier write scenarios and its maintenance.
 
-    Scenario: User step-by-step definition
-        Given Im in page "Google"
-        When I write "peito" in "search"
-        And I press "Enter"
-        Then I verify the page contains "/search"
-
-    Scenario: Traditional Page Object Model
-        Given I open the page "https://google.com.ar"
-        When I search in google "peito"
-        Then I verify the page contains "/search"
-
-    @mobile
-    Scenario: User step-by-step definition
-        Given Im in page "Google"
-        When I write "peito" in "search"
-        And I press "Enter"
-        Then I verify the page contains "/search"
+    @only
+    Scenario: Sign up spotify
+        Given Im in page "spotify"
+        When I write "myemail@gmail.com" in "email"
+        And I write "myFakePwd123!" in "password"
+        And I write "Alejandro" in "name"
+        And I write "14" in "day"
+        And I select "Abril" in dropdown "month"
+        And I write "1992" in "year"
+        And I select "Hombre" in radio button "gender"
+        And I check "share my data"
+        And I click "sign up"
+        Then I verify that element "email error message" contains text "Este correo electrónico ya está conectado a una cuenta"
